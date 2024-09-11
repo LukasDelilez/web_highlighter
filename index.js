@@ -4,18 +4,17 @@ let highligtEnabled = false;
 
 // Function to handle text selection
 function handleSelection() {
-    if (highligtEnabled) {
-        const selection = window.getSelection();
-        if (selection.rangeCount > 0) {
-            console.log(selection);
-            const range = selection.getRangeAt(0);
-            console.log(range);
-            const span = document.createElement('span');
-            span.className = 'extension-highlighted';
-            span.style.backgroundColor = 'yellow';
-            range.surroundContents(span);
+    if (!highligtEnabled) return;
+    const selection = window.getSelection();
+    if (selection.rangeCount > 0) {
+        console.log(selection);
+        const range = selection.getRangeAt(0);
+        console.log(range);
+        const span = document.createElement('span');
+        span.className = 'extension-highlighted';
+        span.style.backgroundColor = 'yellow';
+        range.surroundContents(span);
     }
-  }
 }
 
 // Function to get all highlighted text
